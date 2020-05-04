@@ -8,6 +8,11 @@ class indexmember implements \CADev\Base\CAView{
 public function GetView($args){
     $commentIds = $args['commentIds'];
 $html = <<<HTML
+<html>
+<head>
+    <title>Canterlot Avenue</title>
+</head>
+<body>
     <h1>Welcome to Canterlot Avenue</h1>
 HTML;
 
@@ -16,9 +21,12 @@ foreach($commentIds as $id){
         'commentId'=>$id
     ]);
 }
+
 $html .= <<<HTML
     <hr/>
     <div>Copyright &copy; Poniverse</div>
+</body>
+</html>
 HTML;
 return $html;
 }

@@ -10,12 +10,12 @@ Suppose we have 2 tables in a SQL database containing comment data and user data
 
 ### Comment table
 Table Name: `comments`
-`comment_id` - `int(10)` - Comment ID
-`user_id` - `int(10)` - Posting User ID
-`text` - `varchar(255)` - Comment text
+- `comment_id` - `int(10)` - Comment ID
+- `user_id` - `int(10)` - Posting User ID
+- `text` - `varchar(255)` - Comment text
 
 ### User table
 Table Name: `users`
-`user_id` - `int(10)` - User ID
-`fullname` - `varchar(255)` - Full name of user
-`username` - `varchar(255)` - User name of user
+- `user_id` - `int(10)` - User ID
+- `fullname` - `varchar(255)` - Full name of user
+- `username` - `varchar(255)` - User name of user
