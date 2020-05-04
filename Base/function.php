@@ -7,7 +7,11 @@ namespace CADev\Base;
  */
 function GetController($ctrlName, $args = null){
     $ctrls = [
-        "core.indexmember" => ["Core", "IndexMember", "indexmember"]
+        "core.indexmember" => [
+            'app' => "Core",
+            'class' => "IndexMember",
+            'view' =>"indexmember"
+        ]
     ];
 
     if (!array_key_exists($ctrlName, $ctrls)){
@@ -15,12 +19,12 @@ function GetController($ctrlName, $args = null){
     }
 
     $ctrlToUse = $ctrls[$ctrlName];
-    $className = "\\CADev\\Apps\\". $ctrlToUse[0] ."\\Controllers\\". $ctrlToUse[1];
+    $className = "\\CADev\\Apps\\". $ctrlToUse['app'] ."\\Controllers\\". $ctrlToUse['class'];
     $objCtrl = new $className();
     $pageArgs = $objCtrl->Process($args);
 
     if ($pageArgs !== false){
-        $viewName = "\\CADev\\Apps\\". $ctrlToUse[0] ."\\Views\\". $ctrlToUse[2];
+        $viewName = "\\CADev\\Apps\\". $ctrlToUse['app'] ."\\Views\\". $ctrlToUse['view'];
         $ctrlView = new $viewName();
         return $ctrlView->GetView($pageArgs);
     }
@@ -33,7 +37,10 @@ function GetController($ctrlName, $args = null){
  */
 function GetBlock($blockName, $args = null){
     $blocks = [
-        "comment.block" => ["Comment", "CommentBlock", 'block']
+        "comment.block" => [
+            'app' => "Comment", 
+            'class' => "CommentBlock",
+            'view' => 'block']
     ];
 
     if (!array_key_exists($blockName, $blocks)){
@@ -41,12 +48,12 @@ function GetBlock($blockName, $args = null){
     }
 
     $blockToUse = $blocks[$blockName];
-    $className = "\\CADev\\Apps\\". $blockToUse[0] ."\\Blocks\\". $blockToUse[1];
+    $className = "\\CADev\\Apps\\". $blockToUse['app'] ."\\Blocks\\". $blockToUse['class'];
     $objBlock = new $className();
     $pageArgs = $objBlock->Process($args);
 
     if ($pageArgs !== false){
-        $viewName = "\\CADev\\Apps\\". $blockToUse[0] ."\\Views\\". $blockToUse[2];
+        $viewName = "\\CADev\\Apps\\". $blockToUse['app'] ."\\Views\\". $blockToUse['view'];
         $blockView = new $viewName();
         return $blockView->GetView($pageArgs);
     }
