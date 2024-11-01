@@ -1,0 +1,15 @@
+{
+    "name": "poniverse/ca-dev",
+    "description": "Canterlot Avenue Development Candidate Assessment",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Alex Ramirez",
+            "email": "administration@canterlotavenue.com"
+        }
+    ],
+    "require": {},
+    "scripts": {
+        "serve": "php -S 127.0.0.1:3001 -t ./public -f ./public/index.php"
+    }
+}

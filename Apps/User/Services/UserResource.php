@@ -2,7 +2,7 @@
 
 namespace CADev\Apps\User\Services;
 
-class Get {
+class UserResource {
     private $_testUsers = [];
 
     public function __construct()
@@ -12,7 +12,7 @@ class Get {
         $this->_testUsers[3] = new User(3, "Corona", "corona-ca");
     }
 
-    public function Get($userId = null){
+    public function get($userId = null){
         if (is_null($userId)){
             return $this->_testUsers;
         }
@@ -28,4 +28,3 @@ class Get {
         }
     }
 }
-?>

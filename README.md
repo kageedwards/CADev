@@ -3,6 +3,13 @@
 # Canterlot Avenue Dev Candidate Assessment
 Whether you're interested in volunteering for Canterlot Avenue or just looking hone your PHP skills, this respository is a training tool to help familiarize yourself with a generic framework. 
 
+# Testing
+Composer can be used to spin up a dev server on localhost:3001
+
+```
+composer serve
+```
+
 # Assignments
 You may test yourself using the assessments in `docs/assessments`
 

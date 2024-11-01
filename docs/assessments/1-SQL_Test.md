@@ -19,3 +19,6 @@ Table Name: `users`
 - `user_id` - `int(10)` - User ID
 - `fullname` - `varchar(255)` - Full name of user
 - `username` - `varchar(255)` - User name of user
+
+### MySQL / MariaDB Query
+SELECT c.*, u.fullname, u.username FROM comments AS c LEFT JOIN users AS u ON c.user_id = u.user_id ORDER BY c.comment_id DESC;

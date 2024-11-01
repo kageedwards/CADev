@@ -3,7 +3,6 @@
 namespace CADev\Base;
 
 interface CABlock{
-    public function Process($args);
+    public function process($args);
 }
 
-?>

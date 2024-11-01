@@ -9,5 +9,5 @@
 Despite its usefulness to the backend, displaying a user ID does not to much for the end user. This assessment requires you to replace the user ID in the comment views with the user's full name.
 
 ### Hints:
-- Check the Comment and User apps. Comment's `Comment/Blocks/CommentBlock.php` does retrieves the comments while User's `User/Services/Get.php` can return user information.
-- When displaying the comment, edit `Comment\Views\block.php`
+- Check the Comment and User apps. Comment's `Comment/Blocks/CommentBlock.php` retrieves the comments while User's `User/Services/UserResource.php` can return user information.
+- When displaying the comment, edit `Comment\Views\Comment.php`

@@ -3,7 +3,6 @@
 namespace CADev\Base;
 
 interface CAController{
-    public function Process($args);
+    public function process($args);
 }
 
-?>

@@ -2,16 +2,20 @@
 
 namespace CADev\Apps\Comment\Blocks;
 
-class CommentBlock implements \CADev\Base\CABlock {
-    public function Process($args){
-        $commentId = $args['commentId'];
-        $comment = (new \CADev\Apps\Comment\Services\Get())->Get($commentId);
-        
-        $pageArgs = [
-            'comment' => $comment
-        ];
+use CADev\Base\CABlock;
+use CADev\Apps\Comment\Services\Comment;
+use CADev\Apps\Comment\Services\CommentResource;
 
-        return $pageArgs;
+class CommentBlock implements CABlock {
+    public function process($args){
+
+        if(array_key_exists('comment', $args) && $args['comment'] instanceof Comment) {
+            $comment = $args['comment'];
+        } else {
+            $commentId = $args['commentId'];
+            $comment = (new CommentResource())->get($commentId);
+        }
+
+        return compact('comment');
     }
 }
-?>

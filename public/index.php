@@ -1,8 +1,8 @@
 <?php
 
-require dirname(__FILE__).'/Base/CABlock.php';
-require dirname(__FILE__).'/Base/CAController.php';
-require dirname(__FILE__).'/Base/function.php';
+require dirname(__FILE__, 2).'/Base/CABlock.php';
+require dirname(__FILE__, 2).'/Base/CAController.php';
+require dirname(__FILE__, 2).'/Base/function.php';
 
 spl_autoload_register( function ($className) {
     $className = ltrim($className, '\\');
@@ -14,7 +14,7 @@ spl_autoload_register( function ($className) {
         $fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
     }
     $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
-    $fileName = str_replace("CADev", dirname(__FILE__), $fileName);
+    $fileName = str_replace("CADev", dirname(__FILE__, 2), $fileName);
     require $fileName;
 });
 
@@ -24,15 +24,20 @@ if (!isset($uri) || empty($uri) || $uri == ''){
 }
 
 $uri_map = [
-    '/' => 'core.indexmember'
+    '/' => 'core.indexmember',
+    'report' => 'core.reportcomment'
+];
+
+$valid_query_parameters = [
+    'LOCATION',
+    'comment_id'
 ];
 
 if (array_key_exists($uri, $uri_map)){
-    echo \CADev\Base\GetController($uri_map[$uri]);
+    echo \CADev\Base\GetController($uri_map[$uri], array_intersect_key($_GET, array_flip($valid_query_parameters)));
 }
 else {
     http_response_code(404);
     echo "Error 404: Page not found";
 }
 
-?>

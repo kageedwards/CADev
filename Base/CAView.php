@@ -3,7 +3,6 @@
 namespace CADev\Base;
 
 interface CAView{
-    public function GetView($args);
+    public function getView($args);
 }
 
-?>

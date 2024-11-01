@@ -2,14 +2,13 @@
 
 namespace CADev\Apps\Core\Controllers;
 
-class IndexMember implements \CADev\Base\CAController {
-    public function Process($args){
-        $commentIds = (new \CADev\Apps\Comment\Services\Get)->GetAllIds();
-        $pageArgs = [
-            'commentIds' => $commentIds
-        ];
+use CADev\Base\CAController;
+use CADev\Apps\Comment\Services\CommentResource;
 
-        return $pageArgs;
+class IndexMember implements CAController {
+    public function process($args){
+        $commentIds = (new CommentResource())->getAllIds();
+
+        return compact('commentIds');
     }
 }
-?>

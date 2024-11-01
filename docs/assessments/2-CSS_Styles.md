@@ -8,7 +8,7 @@
 
 Obviously this main page is not exciting. Let's give it some style!
 
-Check out `Apps/Core/Views/indexmember.php` and add some CSS styles.
+Check out `Apps/Core/Views/IndexMember.php` and add some CSS styles.
 
 The main page contains a list of comments. The following CSS classes are used.
 

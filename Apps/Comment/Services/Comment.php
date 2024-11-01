@@ -2,6 +2,8 @@
 
 namespace CADev\Apps\Comment\Services;
 
+use CADev\Apps\User\Services\UserResource;
+
 class Comment {
     public $commentId;
     public $userId;
@@ -14,5 +16,8 @@ class Comment {
         $this->text = $text;
         $this->time = $time;
     }
+
+    function user() {
+        return (new UserResource)->get($this->userId);
+    }
 }
-?>
